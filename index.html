@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Studio Maysa Rocha — Cílios, Sobrancelhas & Micropigmentação</title>
+  <meta name="description" content="Studio Maysa Rocha. Especialista em extensão de cílios, design de sobrancelhas e micropigmentação em Contagem, MG. Nota 5,0 no Google." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --gold: #b8880c;
+      --gold-light: #d4a843;
+      --gold-pale: #f5e9c8;
+      --rose: #c4778a;
+      --rose-light: #e8b4be;
+      --rose-pale: #fdf0f3;
+      --cream: #faf6f0;
+      --cream-dark: #f2e8de;
+      --dark: #1e1010;
+      --dark-mid: #3d2020;
+      --text: #2a1515;
+      --text-mid: #6b4040;
+      --text-light: #a07070;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    /* ── ORNAMENTO ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    .ornament::before,
+    .ornament::after {
+      content: '';
+      flex: 1;
+      max-width: 80px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-light));
+    }
+    .ornament::after {
+      background: linear-gradient(90deg, var(--gold-light), transparent);
+    }
+    .ornament-diamond {
+      width: 6px;
+      height: 6px;
+      background: var(--gold);
+      transform: rotate(45deg);
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(250, 246, 240, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184, 136, 12, 0.15);
+      transition: padding 0.3s;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: var(--dark);
+    }
+    .nav-logo span { color: var(--gold); }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: #fff;
+      border: none;
+      padding: 9px 22px;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--gold-light); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 40px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 60%, rgba(196, 119, 138, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 60% at 80% 30%, rgba(184, 136, 12, 0.10) 0%, transparent 70%),
+        var(--cream);
+      z-index: 0;
+    }
+    .hero-bg-text {
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(80px, 18vw, 220px);
+      font-weight: 300;
+      color: rgba(184, 136, 12, 0.06);
+      white-space: nowrap;
+      pointer-events: none;
+      letter-spacing: 8px;
+      z-index: 0;
+    }
+    .hero-content { position: relative; z-index: 1; max-width: 780px; }
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+      font-weight: 400;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(52px, 9vw, 96px);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--dark);
+      margin-bottom: 8px;
+      letter-spacing: -1px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--rose);
+    }
+    .hero-title-last {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 300;
+      letter-spacing: 8px;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+      display: block;
+    }
+    .hero-tagline {
+      font-size: 15px;
+      color: var(--text-mid);
+      letter-spacing: 1px;
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      margin-bottom: 36px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .btn-gold {
+      background: var(--gold);
+      color: #fff;
+      padding: 14px 36px;
+      border: none;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-gold:hover { background: var(--dark); transform: translateY(-1px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--gold);
+      padding: 14px 36px;
+      border: 1px solid var(--gold);
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover { background: var(--gold); color: #fff; transform: translateY(-1px); }
+    .hero-stars {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--text-light);
+      letter-spacing: 1px;
+    }
+    .star-icons { color: var(--gold); font-size: 16px; letter-spacing: 2px; }
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      z-index: 1;
+      animation: scrollBounce 2s infinite;
+    }
+    .hero-scroll::after {
+      content: '';
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--gold-light), transparent);
+    }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── SEÇÃO BASE ── */
+    section { padding: 100px 40px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      text-align: center;
+      font-weight: 400;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 300;
+      text-align: center;
+      color: var(--dark);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .section-title em { font-style: italic; color: var(--rose); }
+    .ornament-wrap { display: flex; justify-content: center; margin-bottom: 56px; }
+
+    /* ── SERVIÇOS ── */
+    #servicos { background: var(--cream); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2px;
+      background: rgba(184, 136, 12, 0.12);
+      border: 1px solid rgba(184, 136, 12, 0.2);
+    }
+    .service-card {
+      background: var(--cream);
+      padding: 44px 32px;
+      text-align: center;
+      transition: background 0.3s;
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+    .service-card:hover { background: #fff; }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+      display: block;
+    }
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+    .service-desc {
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 1px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+    .service-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: var(--gold);
+      font-style: italic;
+    }
+    .service-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+    .tag {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--rose);
+      border: 1px solid rgba(196, 119, 138, 0.35);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    /* ── GALERIA ── */
+    #galeria { background: var(--cream-dark); }
+    .gallery-intro {
+      max-width: 500px;
+      margin: 0 auto 56px;
+      text-align: center;
+      font-size: 15px;
+      color: var(--text-mid);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.7;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 4px;
+    }
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      background: var(--cream);
+    }
+    .gallery-item:first-child {
+      grid-row: span 2;
+    }
+    .gallery-img {
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+    .gallery-item:hover .gallery-img { transform: scale(1.04); }
+    .gallery-placeholder {
+      width: 100%;
+      min-height: 220px;
+      background: linear-gradient(135deg, #f0e0dc 0%, #e8d4d8 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--text-light);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: transform 0.5s;
+    }
+    .gallery-item:first-child .gallery-placeholder { min-height: 460px; }
+    .gallery-placeholder-icon {
+      font-size: 28px;
+      opacity: 0.4;
+    }
+    .gallery-item:hover .gallery-placeholder { transform: scale(1.02); }
+    .gallery-note {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-light);
+      letter-spacing: 1px;
+    }
+    .gallery-note a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+    .gallery-note a:hover { text-decoration: underline; }
+
+    /* ── DEPOIMENTOS ── */
+    #depoimentos { background: var(--dark); overflow: hidden; position: relative; }
+    #depoimentos::before {
+      content: '"';
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 400px;
+      color: rgba(184, 136, 12, 0.05);
+      line-height: 1;
+      pointer-events: none;
+    }
+    #depoimentos .section-eyebrow { color: var(--gold-light); }
+    #depoimentos .section-title { color: #f5eee8; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      position: relative;
+      z-index: 1;
+    }
+    .testimonial-card {
+      border: 1px solid rgba(184, 136, 12, 0.2);
+      padding: 40px 32px;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .testimonial-card:hover { border-color: rgba(184, 136, 12, 0.5); }
+    .t-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      color: var(--gold);
+      line-height: 0.8;
+      margin-bottom: 16px;
+      opacity: 0.6;
+    }
+    .t-stars { color: var(--gold-light); font-size: 14px; letter-spacing: 3px; margin-bottom: 16px; }
+    .t-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+      color: #e8ddd5;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+    .t-author {
+      font-size: 11px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+    }
+    .t-verified {
+      font-size: 10px;
+      color: rgba(255,255,255,0.35);
+      margin-top: 4px;
+      letter-spacing: 1px;
+    }
+
+    /* ── SOBRE ── */
+    #sobre { background: var(--cream); }
+    .about-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-photo-wrap {
+      position: relative;
+    }
+    .about-photo-frame {
+      position: absolute;
+      top: -16px; right: -16px;
+      width: calc(100% - 20px);
+      height: calc(100% - 20px);
+      border: 1px solid rgba(184, 136, 12, 0.35);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .about-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(160deg, #f0e0dc 0%, #e0ccd4 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--text-light);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+      z-index: 1;
+    }
+    .about-photo-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--gold);
+      color: #fff;
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 2;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .about-badge-num { font-size: 26px; font-weight: 400; line-height: 1; }
+    .about-badge-txt { font-size: 9px; letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; opacity: 0.9; font-family: 'Jost', sans-serif; }
+    .about-text-block { }
+    .about-eyebrow {
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-weight: 400;
+    }
+    .about-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 5vw, 58px);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--dark);
+      margin-bottom: 28px;
+    }
+    .about-title em { color: var(--rose); font-style: italic; }
+    .about-body {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.85;
+      margin-bottom: 32px;
+    }
+    .about-stats {
+      display: flex;
+      gap: 32px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(184, 136, 12, 0.2);
+    }
+    .about-stat { }
+    .about-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .about-stat-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-top: 4px;
+    }
+
+    /* ── CTA WHATSAPP ── */
+    #contato {
+      background: linear-gradient(160deg, #2a1515 0%, #1e0e0e 100%);
+      padding: 100px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #contato::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 100%, rgba(196,119,138,0.12) 0%, transparent 70%);
+    }
+    .cta-inner { position: relative; z-index: 1; max-width: 640px; margin: 0 auto; }
+    .cta-eyebrow {
+      font-size: 11px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 16px;
+    }
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 300;
+      color: #f5eee8;
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+    .cta-title em { color: var(--rose-light); font-style: italic; }
+    .cta-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 40px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+    }
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #25d366;
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-whatsapp:hover { background: #1db955; transform: translateY(-2px); }
+    .btn-whatsapp svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
+    .cta-info {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+    .cta-info-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.45);
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+    .cta-info-item svg { width: 16px; height: 16px; opacity: 0.6; fill: currentColor; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #120808;
+      padding: 32px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 2px;
+    }
+    .footer-logo span { color: var(--gold-light); }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--gold-light); }
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 1px;
+    }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      section { padding: 72px 20px; }
+      .about-layout { grid-template-columns: 1fr; gap: 48px; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+      }
+      .gallery-item:first-child { grid-row: span 1; grid-column: span 2; }
+      footer { flex-direction: column; text-align: center; padding: 24px 20px; }
+      .footer-links { justify-content: center; }
+      .about-badge { width: 72px; height: 72px; }
+      .about-badge-num { font-size: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ── -->
+  <nav id="navbar">
+    <div class="nav-logo">Studio <span>Maysa Rocha</span></div>
+    <ul class="nav-links">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#depoimentos">Avaliações</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+    </ul>
+    <a href="https://wa.me/5531973028058?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="nav-cta" target="_blank" rel="noopener">Agendar</a>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="hero-bg-text">BEAUTY</div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Studio Maysa Rocha — Contagem, MG</p>
+      <h1 class="hero-title">
+        Onde seu olhar<br>
+        <em>começa</em> com
+      </h1>
+      <span class="hero-title-last">um sorriso</span>
+      <p class="hero-tagline">Cílios · Sobrancelhas · Micropigmentação</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5531973028058?text=Olá!%20Gostaria%20de%20agendar%20um%20horário." class="btn-gold" target="_blank" rel="noopener">Agendar agora</a>
+        <a href="#servicos" class="btn-outline">Ver serviços</a>
+      </div>
+      <div class="hero-stars">
+        <span class="star-icons">★★★★★</span>
+        <span>5,0 · 11 avaliações no Google</span>
+      </div>
+    </div>
+    <div class="hero-scroll">scroll</div>
+  </section>
+
+  <!-- ── SERVIÇOS ── -->
+  <section id="servicos">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">O que oferecemos</p>
+      <h2 class="section-title reveal reveal-delay-1">Nossos <em>Serviços</em></h2>
+      <div class="ornament-wrap reveal reveal-delay-2">
+        <div class="ornament"><div class="ornament-diamond"></div></div>
+      </div>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <span class="service-number">01</span>
+          <div class="service-name">Extensão de Cílios</div>
+          <p class="service-desc">Volume Clássico, Volume Luxo e Volume Prime.<br>Realce natural ou dramático.</p>
+          <div class="service-price">A partir de R$ —</div>
+          <div class="service-tag-row">
+            <span class="tag">Clássico</span>
+            <span class="tag">Luxo</span>
+            <span class="tag">Prime</span>
+          </div>
+        </div>
+        <div class="service-card reveal reveal-delay-1">
+          <span class="service-number">02</span>
+          <div class="service-name">Design de Sobrancelha</div>
+          <p class="service-desc">Modelagem precisa com henna, brow lamination e embelezamento.</p>
+          <div class="service-price">A partir de R$ —</div>
+          <div class="service-tag-row">
+            <span class="tag">Henna</span>
+            <span class="tag">Lamination</span>
+          </div>
+        </div>
+        <div class="service-card reveal reveal-delay-2">
+          <span class="service-number">03</span>
+          <div class="service-name">Micropigmentação</div>
+          <p class="service-desc">Shadow e Microblading para sobrancelhas perfeitas todos os dias.</p>
+          <div class="service-price">A partir de R$ —</div>
+          <div class="service-tag-row">
+            <span class="tag">Shadow</span>
+            <span class="tag">Microblading</span>
+          </div>
+        </div>
+        <div class="service-card reveal reveal-delay-3">
+          <span class="service-number">04</span>
+          <div class="service-name">Lifting & Permanente</div>
+          <p class="service-desc">Lifting e permanente de cílios para um olhar aberto e vibrante.</p>
+          <div class="service-price">A partir de R$ —</div>
+          <div class="service-tag-row">
+            <span class="tag">Lifting</span>
+            <span class="tag">Permanente</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── GALERIA ── -->
+  <section id="galeria">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">Portfólio</p>
+      <h2 class="section-title reveal reveal-delay-1">Nosso <em>Trabalho</em></h2>
+      <div class="ornament-wrap reveal reveal-delay-2">
+        <div class="ornament"><div class="ornament-diamond"></div></div>
+      </div>
+      <p class="gallery-intro reveal reveal-delay-3">
+        Cada cliente é única. Cada resultado, inesquecível.
+      </p>
+      <div class="gallery-grid reveal">
+        <!-- 
+          Para adicionar fotos do Instagram:
+          Substitua o div.gallery-placeholder pela tag <img>:
+          <img src="URL_DIRETA_DA_IMAGEM" alt="Descrição" class="gallery-img">
+          
+          Exemplo de URL direta do ImgBB:
+          <img src="https://i.ibb.co/XXXXXXX/foto.jpg" alt="Volume Luxo" class="gallery-img">
+        -->
+        <div class="gallery-item">
+          <div class="gallery-placeholder" style="min-height:460px;">
+            <span class="gallery-placeholder-icon">🦋</span>
+            <span>Foto principal</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            <span class="gallery-placeholder-icon">✨</span>
+            <span>Foto 2</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            <span class="gallery-placeholder-icon">🌿</span>
+            <span>Foto 3</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            <span class="gallery-placeholder-icon">💫</span>
+            <span>Foto 4</span>
+          </div>
+        </div>
+        <div class="gallery-item">
+          <div class="gallery-placeholder">
+            <span class="gallery-placeholder-icon">✨</span>
+            <span>Foto 5</span>
+          </div>
+        </div>
+      </div>
+      <p class="gallery-note reveal">
+        Veja mais em 
+        <a href="https://www.instagram.com/studiomaysarocha" target="_blank" rel="noopener">@studiomaysarocha</a>
+        no Instagram
+      </p>
+    </div>
+  </section>
+
+  <!-- ── DEPOIMENTOS ── -->
+  <section id="depoimentos">
+    <div class="section-inner">
+      <p class="section-eyebrow reveal">Clientes felizes</p>
+      <h2 class="section-title reveal reveal-delay-1">O que dizem sobre <em>nós</em></h2>
+      <div class="ornament-wrap reveal reveal-delay-2">
+        <div class="ornament" style="--gold-light: rgba(212,168,67,0.4);"><div class="ornament-diamond"></div></div>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="t-quote">"</div>
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">Fiz minhas sobrancelhas pela primeira vez e fiquei encantada com o resultado.</p>
+          <div class="t-author">Cliente verificada</div>
+          <div class="t-verified">Google · 5,0 ★</div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="t-quote">"</div>
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">Sou fã do trabalho e da pessoa incrível que ela é.</p>
+          <div class="t-author">Cliente verificada</div>
+          <div class="t-verified">Google · 5,0 ★</div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="t-quote">"</div>
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">Sem dúvidas ela é a melhor profissional do Brasil!</p>
+          <div class="t-author">Cliente verificada</div>
+          <div class="t-verified">Google · 5,0 ★</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SOBRE ── -->
+  <section id="sobre">
+    <div class="section-inner">
+      <div class="about-layout">
+        <div class="about-photo-wrap reveal">
+          <div class="about-photo-frame"></div>
+          <!--
+            Para adicionar a foto da Maysa, substitua o div.about-photo-placeholder por:
+            <img src="URL_DA_FOTO" alt="Maysa Rocha" style="width:100%; aspect-ratio:3/4; object-fit:cover; display:block; position:relative; z-index:1;">
+          -->
+          <div class="about-photo-placeholder">
+            <span style="font-size:40px; opacity:0.3;">🌸</span>
+            <span>Foto da Maysa</span>
+          </div>
+          <div class="about-badge">
+            <span class="about-badge-num">5,0</span>
+            <span class="about-badge-txt">Google</span>
+          </div>
+        </div>
+        <div class="about-text-block reveal reveal-delay-2">
+          <p class="about-eyebrow">Sobre a profissional</p>
+          <h2 class="about-title">Maysa<br><em>Rocha</em></h2>
+          <p class="about-body">
+            Especialista em embelezamento do olhar, Maysa Rocha construiu seu studio com dedicação, técnica apurada e, acima de tudo, amor pelo que faz. Cada atendimento é único — porque cada cliente é única.
+          </p>
+          <p class="about-body">
+            Com atendimento personalizado e resultados que falam por si, o Studio Maysa Rocha se tornou referência em Contagem e região para quem busca sobrancelhas perfeitas, cílios deslumbrantes e micropigmentação de qualidade.
+          </p>
+          <div class="about-stats">
+            <div class="about-stat">
+              <div class="about-stat-num">5,0</div>
+              <div class="about-stat-label">Nota Google</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">11</div>
+              <div class="about-stat-label">Avaliações</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num">420+</div>
+              <div class="about-stat-label">Seguidores</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA / CONTATO ── -->
+  <section id="contato">
+    <div class="cta-inner">
+      <p class="cta-eyebrow reveal">Vamos conversar</p>
+      <h2 class="cta-title reveal reveal-delay-1">Agende seu<br><em>horário</em></h2>
+      <p class="cta-sub reveal reveal-delay-2">Atendimento com hora marcada · Contagem, MG</p>
+      <div class="reveal reveal-delay-3">
+        <a href="https://wa.me/5531973028058?text=Olá!%20Gostaria%20de%20agendar%20um%20horário%20no%20Studio%20Maysa%20Rocha." class="btn-whatsapp" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chamar no WhatsApp
+        </a>
+      </div>
+      <div class="cta-info reveal reveal-delay-4">
+        <div class="cta-info-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          R. João Guimarães, 310 — Ressaca, Contagem
+        </div>
+        <div class="cta-info-item">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+          (31) 97302-8058
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-logo">Studio <span>Maysa Rocha</span></div>
+    <ul class="footer-links">
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="https://www.instagram.com/studiomaysarocha" target="_blank" rel="noopener">Instagram</a></li>
+    </ul>
+    <p class="footer-copy">© 2025 Studio Maysa Rocha</p>
+  </footer>
+
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => observer.observe(el));
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.style.padding = window.scrollY > 60 ? '12px 40px' : '18px 40px';
+    });
+  </script>
+
+</body>
+</html>
